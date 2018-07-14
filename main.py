@@ -3,10 +3,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-  a= 1
-  b= 2
-  c= a+b
-  
+  return 'Apple a day'
+def hello_world():
   return 'Apple a day'
 
 if __name__ == '__main__':
