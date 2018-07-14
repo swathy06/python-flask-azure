@@ -1,7 +1,7 @@
 from flask import Flask
 app = Flask(__name__)
 
-@app.route('/',methods=['POST'])
+@app.route('/')
 def hello_world():
     req = request.get_json(silent=True, force=True)
  
@@ -50,7 +50,7 @@ def makeWebhookResultForGetBmi(data):
         "source": "webhookdata"
     }
  
-  #return 'Hey its Python Flask application!'
+  return 'Hey its Python Flask application!'
 
 
 if __name__ == '__main__':
