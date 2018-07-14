@@ -7,7 +7,7 @@ def hello_world():
   b= 2
   c= a+b
   
-  return 'Hey its Python Flask application!,+int(c)'
+  return 'Hey its Python Flask application!,'
 
 
 if __name__ == '__main__':
