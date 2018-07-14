@@ -5,9 +5,9 @@ app = Flask(__name__)
 def hello_world():
   return 'first page'
 
-@app.route('/hello')
-def hello_world():
-  return 'second page'
+#@app.route('/hello')
+#def hello_world():
+ # return 'second page'
 
 
 if __name__ == '__main__':
