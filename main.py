@@ -9,6 +9,10 @@ def hello_world():
   
   return 'Apple a day'
 
+@app.route('/hello')
+def hello():
+    return ', World'
+
 
 if __name__ == '__main__':
   app.run()
