@@ -3,6 +3,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
+  a= 1
+  b= 2
+  c= a+b
+  print c
   return 'Hey its Python Flask application!'
 
 
