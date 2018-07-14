@@ -14,7 +14,7 @@ def hello_world():
     # print(res)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
-    return r
+    #return r
 def processRequest(req):
     print("Request:")
     print(json.dumps(req, indent=4))
@@ -30,7 +30,6 @@ def processRequest(req):
     elif req.get("result").get("action") == "numbers.add":
         data = req
         res = makeWebhookResultForGetBmi(data)
-    
     else:
         return {}
     return res
