@@ -5,9 +5,10 @@ app = Flask(__name__)
 def hello_world():
   return 'Hey its Python Flask application!'
 
-@app.route('/hai')
-def hai():
-  return 'this is hai'
+@app.route('/hello')
+def hello():
+    return 'Hello, World'
+
 
 if __name__ == '__main__':
   app.run()
