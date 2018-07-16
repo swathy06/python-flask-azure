@@ -4,7 +4,12 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
   a=1
-  return str(a)
+  b=2
+  c=3
+  if(c>b and c>a):
+    return str(c)
+  else:
+    return 'I am the best'
 
 
 
