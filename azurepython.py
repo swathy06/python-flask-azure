@@ -5,21 +5,21 @@ import os
 from flask import make_response
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/',methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
     #print("Request:")
     #print(json.dumps(req, indent=4))
-    #res = processRequest(req)
-    #res = json.dumps(res, indent=4)
+    res = processRequest(req)
+    res = json.dumps(res, indent=4)
     # print(res)
-    #r = make_response(res)
-    #r.headers['Content-Type'] = 'application/json'
-    return req
-'''
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
+    #return req
+    
 def processRequest(req):
-    print("Request:")
-    print(json.dumps(req, indent=4))
+    #print("Request:")
+    #print(json.dumps(req, indent=4))
     if req.get("result").get("action") == "getBmi":
         data = req
         res = makeWebhookResultForGetBmi(data)
@@ -51,6 +51,6 @@ def makeWebhookResultForGetBmi(data):
         "displayText": speech,
         "source": "webhookdata"
     }
-'''
+
 if __name__ == '__main__':
   app.run()
