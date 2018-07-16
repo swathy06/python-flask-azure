@@ -7,6 +7,7 @@ def hello_world():
   b=2
   c=3
   if(c>b and c>a):
+    print str(1)
     return str(c)
   else:
     return 'I am the best'
