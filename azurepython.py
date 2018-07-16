@@ -25,7 +25,7 @@ def processRequest(req):
         res = makeWebhookResultForGetBmi(data)
     else:
         return {}
-    return res
+    #return res
 def makeWebhookResultForGetBmi(data):
     element1 = data.get("result").get("parameters").get("number")
     print (element1)
