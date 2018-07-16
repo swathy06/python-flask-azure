@@ -5,7 +5,7 @@ import os
 from flask import make_response
 app = Flask(__name__)
 
-@app.route('',methods=['POST'])
+@app.route('/',methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
 
@@ -18,7 +18,7 @@ def webhook():
     # print(res)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
-    return r
+    return 'apple'
 '''
 def processRequest(req):
     print("Request:")
