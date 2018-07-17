@@ -8,22 +8,24 @@ app = Flask(__name__)
 @app.route('/',methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
+    print("Request:")
+    print(json.dumps(req, indent=4))
+    res = processRequest(req)
+    res = json.dumps(res, indent=4)
+    print(res)
+    r = make_response(res)
+    r.headers['Content-Type'] = 'application/json'
+    return r
+
+def processRequest(req):
+    print("Request:")
+    print(json.dumps(req, indent=4))
     if req.get("result").get("action") == "getBmi":
         data = req
         res = makeWebhookResultForGetBmi(data)
-        return '123'
     else:
         return {}
-    
-    #print("Request:")
-    #print(json.dumps(req, indent=4))
-    #res = processRequest(req)
-    #res = json.dumps(res, indent=4)
-     #print(res)
-    #r = make_response(res)
-    #r.headers['Content-Type'] = 'application/json'
-    #return r
-    '''
+    return res
 def makeWebhookResultForGetBmi(data):
     element1 = data.get("result").get("parameters").get("number")
     print (element1)
@@ -49,6 +51,6 @@ def makeWebhookResultForGetBmi(data):
         "displayText": speech,
         "source": "webhookdata"
     }
-'''
+
 if __name__ == '__main__':
   app.run()
