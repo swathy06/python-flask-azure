@@ -12,14 +12,14 @@ def webhook():
     print("Request:")
     print(json.dumps(req, indent=4))
 
-    res = processRequest(req)
+    #res = processRequest(req)
 
-    res = json.dumps(res, indent=4)
+    #res = json.dumps(res, indent=4)
     # print(res)
-    r = make_response(res)
-    r.headers['Content-Type'] = 'application/json'
-    #return r
-
+    #r = make_response(res)
+    #r.headers['Content-Type'] = 'application/json'
+    return req
+'''
 def processRequest(req):
     print("Request:")
     print(json.dumps(req, indent=4))
@@ -54,6 +54,6 @@ def makeWebhookResultForGetBmi(data):
         "displayText": speech,
         "source": "webhookdata"
     }
-
+'''
 if __name__ == '__main__':
   app.run()
