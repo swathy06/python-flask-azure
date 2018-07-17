@@ -11,6 +11,7 @@ def webhook():
     if req.get("result").get("action") == "getBmi":
         data = req
         res = makeWebhookResultForGetBmi(data)
+        return '123'
     else:
         return {}
     
@@ -22,6 +23,7 @@ def webhook():
     #r = make_response(res)
     #r.headers['Content-Type'] = 'application/json'
     #return r
+    '''
 def makeWebhookResultForGetBmi(data):
     element1 = data.get("result").get("parameters").get("number")
     print (element1)
@@ -47,6 +49,6 @@ def makeWebhookResultForGetBmi(data):
         "displayText": speech,
         "source": "webhookdata"
     }
-
+'''
 if __name__ == '__main__':
   app.run()
