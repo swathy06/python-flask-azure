@@ -5,6 +5,25 @@ import os
 from flask import make_response
 app = Flask(__name__)
 
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+# create a file handler
+handler = logging.FileHandler('hello.log')
+handler.setLevel(logging.INFO)
+
+# create a logging format
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
+
+# add the handlers to the logger
+logger.addHandler(handler)
+
+logger.info('bmi')
+
+
 @app.route('/',methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
