@@ -37,14 +37,30 @@ def makeWebhookResultForGetBmi(data):
     print(bmi)
     if (bmi<=18.5):
         a = 'underweight'
+        i=float(19)*(float(element2*element2))
+        print(i)
+        r = int(element1) - int(i)
+        i = round(i,2)
+        speech = 'Your bmi is {} and you are {} So your ideal weight should be {}kg and you have to gain {}kg'.format(bmi, a,i,r)
     elif (bmi>18.5 and bmi<24.9):
         a = 'healthy'
+        speech = 'Your bmi is {} and you are {}'.format(bmi, a)
     elif (bmi>25.0 and bmi<29.9):
         a ='overweight'
+        i = float(25) * (float(element2 * element2))
+        print(i)
+        r = int(element1) - int(i)
+        i = round(i, 2)
+        speech = 'Your bmi is {} and you are {} So your ideal weight should be {}kg and you have to reduce {}kg'.format(bmi, a, i,r)
     else:
         a = 'obese'
+        i = float(25) * (float(element2 * element2))
+        print(i)
+        r = int(element1) - int(i)
+        i = round(i, 2)
+        speech = 'Your bmi is {} and you are {} So your ideal weight  should be {}kg and you have to reduce {}kg'.format(bmi, a, i,r)
     #speech = 'Your bmi is {}' +str(bmi)'and you are'+str(a)
-    speech = 'Your bmi is {} and you are {}' .format(bmi,a)
+    #speech = 'Your bmi is {} and you are {}' .format(bmi,a)
 
     return {
         "speech": speech,
