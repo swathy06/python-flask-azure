@@ -86,6 +86,33 @@ def makeWebhookResultForGetBmi(data):
         "displayText": speech,
         "source": "webhookdata"
     }
+def makeDia(data):
+    element1 = data.get("result").get("parameters").get("number-integer")
+    element2 = data.get("result").get("parameters").get("number")
+    if (element1 < 100 and (element2 > 79 and element2 < 159)):
+        a = 'normal'
+       
+        speech = 'Your are not diabetic'
+    elif (element1 < 100 and (element2 > 160 and element2 < 200)):
+        a = 'prediabetic'
+        speech = 'You are {} and its better to consult a Physician. As Prevention is better than cure'.format(a)
+    elif (element1 < 100 and  element2 > 200):
+        a ='diabetic'
+        
+        speech = 'You are {} .Please consult a diabetologist and have a regular checkup'.format(a)
+    else:
+        a = 'diabetic'
+        
+        speech = 'You are {} .Please consult a diabetologist and have a regular checkup'.format(a)
+    #speech = 'Your bmi is {}' +str(bmi)'and you are'+str(a)
+    #speech = 'Your bmi is {} and you are {}' .format(bmi,a)
+
+    return {
+        "speech": speech,
+        "displayText": speech,
+        "source": "webhookdata"
+    }
+   
 
 if __name__ == '__main__':
   app.run()
