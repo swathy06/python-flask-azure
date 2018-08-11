@@ -42,6 +42,9 @@ def processRequest(req):
     if req.get("result").get("action") == "getBmi":
         data = req
         res = makeWebhookResultForGetBmi(data)
+    elif req.get("result").get("action") == "getDia":
+        data = req
+        res = makeDia(data)
     else:
         return {}
     return res
