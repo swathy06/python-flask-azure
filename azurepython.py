@@ -24,7 +24,7 @@ logger.addHandler(handler)
 logger.info('bmi')
 
 
-@app.route('/',methods=['POST'])
+@app.route('',methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
     print("Request:")
